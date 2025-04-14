@@ -25,18 +25,21 @@ fc-cache -fv
 
 # Instalación de herramientas esenciales
 installing "htop, curl, wget, grep, sed"
-sudo pacman -Sy htop curl wget grep sed cmake
+sudo pacman -S --noconfirm htop curl wget grep sed cmake
 
 # Instalación de herramientas adicionales
 installing "bat"
-sudo pacman -Sy bat
+sudo pacman -S --noconfirm bat
 
 installing "lsd"
-sudo pacman -Sy lsd
+sudo pacman -S --noconfirm lsd
+
+installing "nano-syntax-highlighting"
+sudo pacman -S --noconfirm nano-syntax-highlighting
 
 # Instalación de Zsh
 installing "Zsh"
-sudo pacman -Sy zsh
+sudo pacman -S --noconfirm zsh
 
 # Cambiar la terminal predeterminada a Zsh
 chsh -s $(which zsh)
@@ -58,14 +61,14 @@ mv .p10k.zsh ~/.p10k.zsh
 
 # Instalación de Ranger
 installing "Ranger"
-sudo pacman -Sy ranger
+sudo pacman -S --noconfirm ranger
 mv .config/ranger ~/.config/
 
 # Instalación y configuración de Neovim y LunarVim
 installing "Neovim"
-sudo pacman -Sy neovim
+sudo pacman -S --noconfirm neovim
 installing "LunarVim"
-sudo pacman -Sy ripgrep rust python-pip npm
+sudo pacman -S --noconfirm ripgrep rust python-pip npm
 LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
 
 mv .config/alacritty ~/.config/
