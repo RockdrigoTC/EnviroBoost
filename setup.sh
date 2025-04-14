@@ -68,5 +68,7 @@ installing "LunarVim"
 sudo pacman -Sy ripgrep rust python-pip npm
 LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
 
+mv .config/alacritty ~/.config/
+
 echo -e "\n\033[1;34m¡Instalación completa! Tu entorno de desarrollo está listo.\033[0m"
 echo -e "Los servicios FTP, SSH y Apache están corriendo y configurados para arrancar automáticamente."
