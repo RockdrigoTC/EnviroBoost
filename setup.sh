@@ -63,12 +63,18 @@ mv .p10k.zsh ~/.p10k.zsh
 installing "Ranger"
 sudo pacman -S --noconfirm ranger
 mv .config/ranger ~/.config/
+chmod +x ~/.config/ranger/scope.sh
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
 # Instalación y configuración de Neovim y LunarVim
 installing "Neovim"
 sudo pacman -S --noconfirm neovim
 installing "LunarVim"
 sudo pacman -S --noconfirm ripgrep rust python-pip npm
+sudo npm install -g npm
+sudo pacman -S --noconfirm python-pynvim
+sudo npm install -g neovim tree-sitter-cli
+sudo pacman -S --noconfirm ripgrep fd
 LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
 
 mv .config/alacritty ~/.config/
