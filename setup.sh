@@ -12,7 +12,7 @@ function installing() {
 }
 
 installing "Actualizando paquetes"
-sudo apt update && sudo apt upgrade
+sudo pacman -Syu
 
 # Instalación de fuentes Meslo Nerd Fonts
 installing "Fuentes Meslo Nerd"
@@ -24,19 +24,19 @@ wget -q https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%
 fc-cache -fv
 
 # Instalación de herramientas esenciales
-installing "htop, curl, wget, grep, sed, cmake"
-sudo apt install -y htop curl wget grep sed cmake
+installing "htop, curl, wget, grep, sed"
+sudo pacman -Sy htop curl wget grep sed cmake
 
 # Instalación de herramientas adicionales
 installing "bat"
-sudo apt install -y bat
+sudo pacman -Sy bat
 
 installing "lsd"
-sudo apt install -y lsd
+sudo pacman -Sy lsd
 
 # Instalación de Zsh
 installing "Zsh"
-sudo apt install -y zsh
+sudo pacman -Sy zsh
 
 # Cambiar la terminal predeterminada a Zsh
 chsh -s $(which zsh)
@@ -57,47 +57,16 @@ mv .zshrc ~/.zshrc
 mv .p10k.zsh ~/.p10k.zsh
 
 # Instalación de Ranger
-installing "Ranger y dependencias"
-sudo apt install -y ranger python3-pynvim
+installing "Ranger"
+sudo pacman -Sy ranger
 mv .config/ranger ~/.config/
 
-# Instalación de FTP
-installing "FTP (vsftpd)"
-sudo apt install -y vsftpd
-
-# Configuración y activación del servicio FTP
-installing "Configurando FTP"
-sudo service vsftpd start
-sudo service vsftpd enable
-
-# Instalación y configuración de SSH
-installing "SSH (OpenSSH)"
-sudo apt install -y openssh-server
-
-# Iniciar el servicio SSH
-sudo service ssh start
-sudo service ssh enable
-
-# Instalación y configuración de Neovim 
+# Instalación y configuración de Neovim y LunarVim
 installing "Neovim"
-# Instalación de Neovim
-sudo apt install -y neovim
-mv .config/nvim ~/.config/
-
-# Instalación de herramientas de desarrollo
-installing "Python y herramientas relacionadas"
-sudo apt install -y python3 python3-pip python3-venv
-
-installing "Compilador C y C++"
-sudo apt install -y build-essential
-
-installing "Servidor web Apache"
-sudo apt install -y apache2
-
-# Verificación de Apache y activación del servicio
-installing "Verificando y configurando Apache"
-sudo service apache2 status
-sudo service apache2 start
+sudo pacman -Sy neovim
+installing "LunarVim"
+sudo pacman -Sy ripgrep rust python-pip npm
+LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
 
 echo -e "\n\033[1;34m¡Instalación completa! Tu entorno de desarrollo está listo.\033[0m"
 echo -e "Los servicios FTP, SSH y Apache están corriendo y configurados para arrancar automáticamente."
