@@ -36,6 +36,7 @@ sudo pacman -S --noconfirm lsd
 
 installing "nano-syntax-highlighting"
 sudo pacman -S --noconfirm nano-syntax-highlighting
+echo "include /usr/share/nano-syntax-highlighting/*.nanorc" >> ~/.nanorc
 
 # Instalación de Zsh
 installing "Zsh"
